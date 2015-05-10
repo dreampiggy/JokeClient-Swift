@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3216BFA71AFF5F030062BA91 /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3216BFA61AFF5F030062BA91 /* me.jpg */; };
+		3216BFA91AFF68360062BA91 /* placeHolder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3216BFA81AFF68360062BA91 /* placeHolder.gif */; };
+		3248FD731AFF76AF00765C9D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3248FD721AFF76AF00765C9D /* Icon.png */; };
 		6E53E908194352320021598F /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E906194352320021598F /* avatar.jpg */; };
-		6E53E909194352320021598F /* me.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E907194352320021598F /* me.jpeg */; };
 		6E53E911194352960021598F /* YRAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90B194352960021598F /* YRAboutViewController.swift */; };
 		6E53E912194352960021598F /* YRAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E90C194352960021598F /* YRAboutViewController.xib */; };
 		6E53E913194352960021598F /* YRCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90D194352960021598F /* YRCommentsViewController.swift */; };
@@ -48,8 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3216BFA61AFF5F030062BA91 /* me.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpg; sourceTree = "<group>"; };
+		3216BFA81AFF68360062BA91 /* placeHolder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = placeHolder.gif; sourceTree = "<group>"; };
+		3248FD721AFF76AF00765C9D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6E53E906194352320021598F /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
-		6E53E907194352320021598F /* me.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpeg; sourceTree = "<group>"; };
 		6E53E90B194352960021598F /* YRAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRAboutViewController.swift; sourceTree = "<group>"; };
 		6E53E90C194352960021598F /* YRAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YRAboutViewController.xib; sourceTree = "<group>"; };
 		6E53E90D194352960021598F /* YRCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRCommentsViewController.swift; sourceTree = "<group>"; };
@@ -103,8 +107,10 @@
 		6E53E905194352320021598F /* image */ = {
 			isa = PBXGroup;
 			children = (
+				3216BFA81AFF68360062BA91 /* placeHolder.gif */,
+				3248FD721AFF76AF00765C9D /* Icon.png */,
+				3216BFA61AFF5F030062BA91 /* me.jpg */,
 				6E53E906194352320021598F /* avatar.jpg */,
-				6E53E907194352320021598F /* me.jpeg */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -303,11 +309,13 @@
 				6E53E920194352DE0021598F /* YRCommnentsCell.xib in Resources */,
 				6E53E93B194356810021598F /* 04.png in Resources */,
 				6E53E938194356810021598F /* 01.png in Resources */,
-				6E53E909194352320021598F /* me.jpeg in Resources */,
 				6E53E923194352DE0021598F /* YRJokeCell.xib in Resources */,
 				6E53E908194352320021598F /* avatar.jpg in Resources */,
+				3248FD731AFF76AF00765C9D /* Icon.png in Resources */,
+				3216BFA71AFF5F030062BA91 /* me.jpg in Resources */,
 				6E53E912194352960021598F /* YRAboutViewController.xib in Resources */,
 				6E53E925194352DE0021598F /* YRRefreshView.xib in Resources */,
+				3216BFA91AFF68360062BA91 /* placeHolder.gif in Resources */,
 				6E53E939194356810021598F /* 02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

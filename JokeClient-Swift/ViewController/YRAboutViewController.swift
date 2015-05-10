@@ -12,7 +12,7 @@ class YRAboutViewController: UIViewController {
 
     @IBAction func followMe()
     {
-        var urlString = "http://weibo.com/yangreal"
+        var urlString = "http://weibo.com/dreampiggy"
         var url =  NSURL(string: urlString)
         UIApplication.sharedApplication().openURL(url!)
     }

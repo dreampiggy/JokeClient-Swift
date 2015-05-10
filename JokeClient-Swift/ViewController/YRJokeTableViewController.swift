@@ -24,7 +24,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     var jokeType:YRJokeTableViewControllerType = .HotJoke
     var tableView:UITableView?
     var dataArray = NSMutableArray()
-    var page :Int = 1
+    var page :Int = 1//API中获取第几个页面，每次自增1
     var refreshView:YRRefreshView?
     
     
@@ -72,20 +72,20 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     func loadData()
     {
         var url = urlString()
-        self.refreshView!.startLoading()
+        self.refreshView!.startLoading()//等待网络请求的动画
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
            
-            if data as NSObject == NSNull()
+            if data as! NSObject == NSNull()
             {
                UIView.showAlertView("提示",message:"加载失败")
               return
             }
             
-            var arr = data["items"] as NSArray
+            var arr = data["items"] as! NSArray
             
             for data : AnyObject  in arr
             {
-               self.dataArray.addObject(data)
+               self.dataArray.addObject(data)//存放API结果的MutableArray数组
             }
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
@@ -93,6 +93,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             })
     }
     
+    //通过直接抓取非官方接口的内容来获取数据
     
     func urlString()->String
     {
@@ -115,7 +116,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
@@ -129,44 +130,36 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
         var index = indexPath.row
-        var data = self.dataArray[index] as NSDictionary
-        cell!.data = data
+        var data = self.dataArray[index] as! NSDictionary
+        cell!.data = data//每个cell中的data变量用dataArray[index]获取
         return cell!;
     }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
-//
-//        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath!) as? YRJokeCell
-//        var index = indexPath!.row
-//        var data = self.dataArray[index] as NSDictionary
-//        cell!.data = data
-//        return cell!
-//    }
-
-     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
-     {
-        var index = indexPath!.row
-        var data = self.dataArray[index] as NSDictionary
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        var index = indexPath.row
+        var data = self.dataArray[index] as! NSDictionary
         return  YRJokeCell.cellHeightByData(data)
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var index = indexPath!.row
-        var data = self.dataArray[index] as NSDictionary
+        var index = indexPath.row
+        var data = self.dataArray[index] as! NSDictionary
         var commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
         commentsVC.jokeId = data.stringAttributeForKey("id")
         self.navigationController!.pushViewController(commentsVC, animated: true)
     }
     
-     func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
-     {
+    func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
+    {
         loadData()
-     }
+    }
     
     func imageViewTapped(noti:NSNotification)
     {
         
-        var imageURL = noti.object as String
+        var imageURL = noti.object as! String
         var imgVC = YRImageViewController(nibName: nil, bundle: nil)
         imgVC.imageURL = imageURL
         self.navigationController!.pushViewController(imgVC, animated: true)

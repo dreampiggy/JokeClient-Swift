@@ -51,18 +51,19 @@ class YRJokeCell: UITableViewCell {
        // var uid = self.data["id"] as String
         var user : AnyObject!  = self.data["user"]
         
-        if user as NSObject != NSNull()
+        if user as! NSObject != NSNull()
         {
-            var userDict = user as NSDictionary
-            self.nickLabel!.text = userDict["login"] as NSString
+            var userDict = user as! NSDictionary
+            self.nickLabel!.text = userDict["login"] as! NSString as String
             
             var icon : AnyObject! = userDict["icon"] //as NSString
-            if icon as NSObject != NSNull()
+            if icon as! NSObject != NSNull()
             {
-                var userIcon = icon as String
-                var userId =  userDict["id"] as NSString
-                var prefixUserId = userId.substringToIndex(3)
-                var userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
+                var userIcon = icon as! String
+                var userId =  userDict["id"] as! NSString
+                var prefixUserId = userId.substringToIndex(userId.length - 4)
+                var userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
+//                println(userImageURL)
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
             else
@@ -91,17 +92,18 @@ class YRJokeCell: UITableViewCell {
         else
         {
             var imageId = self.data.stringAttributeForKey("id") as NSString
-            var prefiximageId = imageId.substringToIndex(4)
-            var imagURL = "http://pic.moumentei.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
+            var prefiximageId = imageId.substringToIndex(imageId.length - 4)
+            var imagURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
             self.pictureView!.hidden = false
-            self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "avatar.jpg"))
-            self.largeImageURL = "http://pic.moumentei.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
+            self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "placeHolder.gif"))
+            self.largeImageURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
+//            println(self.largeImageURL)
             self.pictureView!.setY(self.contentLabel!.bottom()+5)
             self.bottomView!.setY(self.pictureView!.bottom())
         }
         
         var votes :AnyObject!  = self.data["votes"]
-        if votes as NSObject == NSNull()
+        if votes as! NSObject == NSNull()
         {
             self.likeLabel!.text = "顶(0)"
             self.dislikeLabel!.text = "踩(0)"
@@ -109,7 +111,7 @@ class YRJokeCell: UITableViewCell {
         }
         else
         {
-            var votesDict = votes as NSDictionary
+            var votesDict = votes as! NSDictionary
             var like  = votesDict.stringAttributeForKey("up") as String
             var disLike  = votesDict.stringAttributeForKey("down") as String
             self.likeLabel!.text = "顶(\(like))"

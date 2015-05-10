@@ -26,7 +26,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         self.addSubview(self.imageView!)
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.blackColor()
         self.minimumZoomScale = 1;
         self.maximumZoomScale = 3;
      
@@ -57,7 +57,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
     }
     
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView!)->UIView
+    func viewForZoomingInScrollView(scrollView: UIScrollView)->UIView?
     {
         return self.imageView!
     }
