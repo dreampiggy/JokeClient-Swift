@@ -8,9 +8,17 @@ JokeClient-Swift
 
 4.修复一些编译错误
 
-5.我的新浪微博http://weibo.com/yangreal
+5.原作者新浪微博: [YANGReal](http://weibo.com/yangreal)
 
+6.个人新浪微博: [DreamingPiggy](http://weibo.com/dreampiggy)
 
+7.更新部分
+
+1. Swift 1.2 语法
+2. UI优化
+3. 糗百API修复
+4. 对iPhone6 / 6 Plus使用Autolayout适配
+5. 对缓存和瀑布式网络请求进行修改，修复一些由于线程时序问题导致的Bug 
 
 
 ![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
